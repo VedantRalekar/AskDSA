@@ -8,7 +8,6 @@ def vector_retriever(db):
             "fetch_k":20,
              "lambda_mult":0.6
         }
-
     )
 
     return search

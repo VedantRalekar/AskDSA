@@ -15,9 +15,6 @@ def load_documents(folder):
 
             documents.extend(docs)
     
-    print(
-        "Pages Loaded:",
-        len(documents)
-    )
+    print("Pages Loaded:", len(documents))
 
     return documents

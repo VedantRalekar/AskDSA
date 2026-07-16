@@ -1,7 +1,7 @@
 def reciprocal_rank_fusion(docs1, docs2):
 
-    scores={}
-    documents={}
+    scores = {}
+    documents = {}
 
     for rank,doc in enumerate(docs1):
 

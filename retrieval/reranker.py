@@ -1,72 +1,27 @@
 from sentence_transformers import CrossEncoder
 
 
-
-model = CrossEncoder(
-    "cross-encoder/ms-marco-MiniLM-L-6-v2"
-)
+model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 
+def rerank_documents(question, documents,top_k = 5):
 
-def rerank_documents(
-        question,
-        documents,
-        top_k=5
-):
-
-
-    pairs=[]
-
+    pairs = []
 
     for doc in documents:
+        pairs.append([question, doc.page_content])
+
+    scores=model.predict(pairs)
 
 
-        pairs.append(
+    ranked = []
 
-            [
-
-                question,
-
-                doc.page_content
-
-            ]
-
-        )
+    for score,doc in zip(scores, documents):
+        ranked.append((score, doc))
 
 
-    scores=model.predict(
-        pairs
-    )
-
-
-    ranked=[]
-
-
-    for score,doc in zip(
-        scores,
-        documents
-    ):
-
-        ranked.append(
-            (
-                score,
-                doc
-            )
-        )
+    ranked.sort(reverse=True, key=lambda x:x[0])
 
 
 
-    ranked.sort(
-        reverse=True,
-        key=lambda x:x[0]
-    )
-
-
-
-    return [
-
-        doc
-
-        for score,doc in ranked[:top_k]
-
-    ]
+    return [doc for score,doc in ranked[:top_k]]

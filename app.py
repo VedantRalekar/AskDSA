@@ -71,84 +71,49 @@ from retrieval.pipeline import hybrid_search
 from llm.model import get_llm
 from llm.prompt import PROMPT
 
-
-
 from langchain_core.prompts import PromptTemplate
 
 
 
 # LOAD DATA
-
-docs=load_documents(
-    PDF_FOLDER
-)
+docs = load_documents(PDF_FOLDER)
 print("Document loaded successfully..")
 
-docs = clean_documents(
-        docs
-)
+docs = clean_documents(docs)
 
-
-
-
-chunks=split_documents(
-    docs
-)
+chunks = split_documents(docs)
 print("Chunked successfully..")
 
-
 # EMBEDDING
-
-embedding=get_embedding()
+embedding = get_embedding()
 print("embedding sucessfully..")
 
 
 # VECTOR DB
-
-db=create_database(
-    chunks,
-    embedding
-)
+db = create_database(chunks, embedding)
 print("Vector Database Created successfully..")
 
 # RETRIEVERS
-
-vector=vector_retriever(
-    db
-)
+vector = vector_retriever(db)
 print("vector search successfully..")
 
-bm25=create_bm25(
-    chunks
-)
+bm25 = create_bm25(chunks)
 print("bm_25 search successfully..")
-print(bm25)
+# print(bm25)
 
-llm=get_llm()
+llm = get_llm()
 print("llm successfully..")
 
 
 while True:
 
-
-    question=input(
-        "\nAsk DSA : "
-    )
-
-
-    if question=="exit":
+    question=input("\nAsk Question : ")
+    if question == "exit":
         break
 
-
-
-    results=hybrid_search(
-        question,
-        vector,
-        bm25
-
-    )
-    print("=" * 60)
-    print(results)
+    results = hybrid_search(question, vector, bm25)
+    # print("=" * 60)
+    # print(results)
 
     # print("=" * 60)
     # print("Retrieved Documents:", len(results))
@@ -161,42 +126,24 @@ while True:
     # print("=" * 60)
     print("Hybrid retrieval successfully..")
 
-    context="\n\n".join(
-        [
-            r.page_content
-            for r in results
-        ]
-
-    )
+    context = "\n\n".join([r.page_content for r in results])
     # print(context)
 
 
-    prompt=PromptTemplate(
-
+    prompt = PromptTemplate(
         template=PROMPT,
-        input_variables=[
+        input_variables = [
             "context",
             "question"
         ]
-
     )
 
-
-    response=llm.invoke(
-        prompt.format(
-            context=context,
-            question=question
-
-        )
-
-    )
-
+    prompt = prompt.format(context=context, question=question)
+    
+    response = llm.invoke(prompt)
 
     print("=" * 60)
-    print(response)
+    print(response.content)
 
 
-    print(
-        "\nAI:",
-        response.content
-    )
+    # print("\nAI:", response.content)
