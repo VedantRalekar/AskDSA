@@ -238,7 +238,7 @@ Final Response
 Add screenshots or a GIF here.
 
 ```
-<img src="[https://raw.githubusercontent.com/VedantRalekar/AskDSA/main/assets/home.png](https://github.com/VedantRalekar/AskDSA/blob/5da0f49111f04eaac4ea9f771fb3d9a725fc2735/Screenshot%202026-07-28%20184819.png)" width="100%">
+<img src="https://github.com/VedantRalekar/AskDSA/blob/5da0f49111f04eaac4ea9f771fb3d9a725fc2735/Screenshot%202026-07-28%20184819.png" width="100%">
 ```
 
 ---
