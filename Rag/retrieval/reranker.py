@@ -4,7 +4,7 @@ from sentence_transformers import CrossEncoder
 model = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
 
 
-def rerank_documents(question, documents,top_k = 10):
+def rerank_documents(question, documents,top_k = 5):
 
     pairs = []
 

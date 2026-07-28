@@ -3,6 +3,6 @@ from langchain_community.retrievers import BM25Retriever
 def create_bm25(chunks):
 
     retriever = BM25Retriever.from_documents(chunks)
-    retriever.k = 10
+    retriever.k = 30
 
     return retriever
