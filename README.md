@@ -238,9 +238,7 @@ Final Response
 Add screenshots or a GIF here.
 
 ```
-<p align="center">
-  <img src="Screenshot 2026-07-28 184819.png" alt="AskDSA Home" width="100%">
-</p>
+
 ```
 
 ---
