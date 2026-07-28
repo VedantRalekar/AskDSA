@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSA Question Search</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="layout">
+
+    <aside class="sidebar">
+      <h2>Try asking</h2>
+      <ul id="exampleList" class="example-list"></ul>
+    </aside>
+
+    <section class="content">
+      <h1>Ask a DSA Question</h1>
+
+      <div id="status" class="status" hidden></div>
+
+      <div id="results" class="results"></div>
+
+      <div class="search-row">
+        <input id="searchInput" type="text" placeholder="e.g. how do you reverse a linked list?" autocomplete="off" />
+        <button id="searchBtn">Search</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
