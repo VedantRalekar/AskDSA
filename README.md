@@ -210,9 +210,6 @@ Vector Search
 RRF Fusion
       │
       ▼
-Apply MMR
-      │
-      ▼
 Cross Encoder Reranking
       │
       ▼
@@ -230,7 +227,7 @@ Final Response
 * Semantic understanding using transformer embeddings
 * Reduced hallucinations through context-aware generation
 * Modular RAG architecture
-* Efficient retrieval over 100K+ embeddings
+* Efficient retrieval over 20K+ embeddings
 * Metadata-aware document retrieval
 * Easily extensible for additional datasets
 
@@ -241,7 +238,7 @@ Final Response
 Add screenshots or a GIF here.
 
 ```
-docs/demo.gif
+<img src="[https://raw.githubusercontent.com/VedantRalekar/AskDSA/main/assets/home.png](https://github.com/VedantRalekar/AskDSA/blob/5da0f49111f04eaac4ea9f771fb3d9a725fc2735/Screenshot%202026-07-28%20184819.png)" width="100%">
 ```
 
 ---
