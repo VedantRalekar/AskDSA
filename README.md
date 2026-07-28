@@ -238,7 +238,9 @@ Final Response
 Add screenshots or a GIF here.
 
 ```
-<img src="https://github.com/VedantRalekar/AskDSA/blob/5da0f49111f04eaac4ea9f771fb3d9a725fc2735/Screenshot%202026-07-28%20184819.png" width="100%">
+<p align="center">
+  <img src="Screenshot 2026-07-28 184819.png" alt="AskDSA Home" width="100%">
+</p>
 ```
 
 ---
