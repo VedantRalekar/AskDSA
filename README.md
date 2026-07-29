@@ -39,7 +39,6 @@ Hybrid Retrieval Pipeline
      ├── BM25 Search
      ├── Vector Search
      ├── RRF Fusion
-     ├── MMR
      └── Cross Encoder Reranker
      │
      ▼
@@ -71,6 +70,7 @@ AskDSA/
 │   ├── ingestion/
 │   ├── retrieval/
 │   ├── llm/
+|   ├── chroma_db/
 │   ├── data/
 │   ├── api.py
 │   ├── app.py
