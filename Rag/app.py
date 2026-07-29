@@ -33,14 +33,10 @@ print("Chunked successfully..")
 embedding = get_embedding()
 print("embedding sucessfully..")
 
-# Check if vector store already exists
-if os.path.exists(persistent_directory):
-    print("Vector store already exists, Loading Database")
-    db = load_database(embedding)
-else:
-    # Create Vector Database
-    db = create_database(chunks, embedding)
-    print("Vector Database Created successfully..")
+
+# Create Vector Database
+db = create_database(chunks, embedding)
+print("Vector Database Created successfully..")
 
 
 # Retriever

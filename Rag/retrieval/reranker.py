@@ -11,7 +11,7 @@ def rerank_documents(question, documents,top_k = 5):
     for doc in documents:
         pairs.append([question, doc.page_content])
 
-    scores=model.predict(pairs)
+    scores = model.predict(pairs)
 
 
     ranked = []
