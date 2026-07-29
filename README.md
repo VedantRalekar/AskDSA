@@ -124,7 +124,7 @@ cd AskDSA
 ```bash
 cd Backend
 npm install
-npm start
+node server.js
 ```
 
 ---
