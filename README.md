@@ -235,11 +235,10 @@ Final Response
 
 # 📸 Demo
 
-Add screenshots or a GIF here.
-
-```
-
-```
+---
+<p> 
+     <img src="Screenshot 2026-07-28 184819.png" width="100%"/>
+</p>
 
 ---
 
