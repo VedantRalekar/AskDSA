@@ -39,7 +39,6 @@ Hybrid Retrieval Pipeline
      ├── BM25 Search
      ├── Vector Search
      ├── RRF Fusion
-     ├── MMR
      └── Cross Encoder Reranker
      │
      ▼
@@ -71,6 +70,7 @@ AskDSA/
 │   ├── ingestion/
 │   ├── retrieval/
 │   ├── llm/
+|   ├── chroma_db/
 │   ├── data/
 │   ├── api.py
 │   ├── app.py
@@ -124,7 +124,7 @@ cd AskDSA
 ```bash
 cd Backend
 npm install
-npm start
+node server.js
 ```
 
 ---
@@ -210,9 +210,6 @@ Vector Search
 RRF Fusion
       │
       ▼
-Apply MMR
-      │
-      ▼
 Cross Encoder Reranking
       │
       ▼
@@ -230,7 +227,7 @@ Final Response
 * Semantic understanding using transformer embeddings
 * Reduced hallucinations through context-aware generation
 * Modular RAG architecture
-* Efficient retrieval over 100K+ embeddings
+* Efficient retrieval over 20K+ embeddings
 * Metadata-aware document retrieval
 * Easily extensible for additional datasets
 
@@ -238,11 +235,10 @@ Final Response
 
 # 📸 Demo
 
-Add screenshots or a GIF here.
-
-```
-docs/demo.gif
-```
+---
+<p> 
+     <img src="Screenshot 2026-07-28 184819.png" width="100%"/>
+</p>
 
 ---
 
