@@ -1,9 +1,9 @@
 from config import *
-
+import os
 from ingestion.loader import load_documents
 from ingestion.splitter import split_documents
 from ingestion.embedding import get_embedding
-from ingestion.vectorstore import create_database
+from ingestion.vectorstore import create_database, load_database
 from ingestion.cleaner import clean_documents
 from ingestion.vectorstore import load_database
 
@@ -34,9 +34,14 @@ embedding = get_embedding()
 print("embedding sucessfully..")
 
 
-# Create Vector Database
-db = create_database(chunks, embedding)
-print("Vector Database Created successfully..")
+# Create Vector Database Before that check if vector store already exist or not 
+# if exist then load vectore store
+if os.path.exists(persistent_directory):
+    db = load_database(embedding)
+    print("Vector Database Loaded successfull..")
+else:
+    db = create_database(chunks, embedding)
+    print("Vector Database Created successfully..")
 
 
 # Retriever
@@ -50,7 +55,7 @@ print("bm_25 search successfully..")
 llm = get_llm()
 print("llm successfully..")
 
-
+chat_history = []
 
 def ask_question(question):
 
@@ -59,17 +64,33 @@ def ask_question(question):
 
     context = "\n\n".join([r.page_content for r in results])
    
+    history = ""
+    for chat in chat_history:
+        history += f"""
+        user :{chat["question"]}
+        assistant :{chat["answer"]}"""
+
+    if not history:
+        history = "No previous conversation"
+    
     prompt = PromptTemplate(
         template=PROMPT,
         input_variables = [
+            "history",
             "context",
             "question"
         ]
     )
 
-    prompt = prompt.format(context=context, question=question)
+    prompt = prompt.format(history=history, context=context, question=question)
     response = llm.invoke(prompt)
+    
+    answer = response.content
 
-    return response.content
+    chat_history.append({
+        "question":question,
+        "answer":answer
+    })
+    return answer
 
 
