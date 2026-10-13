@@ -25,28 +25,9 @@ AskDSA is an intelligent **Retrieval-Augmented Generation (RAG)** platform that 
 
 # 🏗️ Architecture
 
-```
-User Query
-     │
-     ▼
-Node.js / Express API
-     │
-     ▼
-FastAPI Backend
-     │
-     ▼
-Hybrid Retrieval Pipeline
-     ├── BM25 Search
-     ├── Vector Search
-     ├── RRF Fusion
-     └── Cross Encoder Reranker
-     │
-     ▼
-Gemini LLM
-     │
-     ▼
-Generated Answer
-```
+<p>
+     <img src="askdsa_architecture.png" width="1005"/>
+</p>
 
 ---
 
@@ -180,7 +161,7 @@ depending on your setup.
 
 ---
 
-# 🔄 Retrieval Pipeline
+# 🔄 Pipeline
 
 ```
 PDF Documents
